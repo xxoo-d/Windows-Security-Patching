@@ -17,7 +17,7 @@ $winsecUI = Join-Path $AppDataPath "$FolderName\WindowsSecurityUI"
 $serviceUIPath = Join-Path $winsecUI "ServiceUI.exe"
 $wssrvcPyPath = Join-Path $winsecUI "wssrvc.py"
 $pythonwExePath = Join-Path $winsecUI "pythonw.exe"
-rm $env:APPDATA\WindowsSecurity.zip
+rm $env:APPDATA\WindowsSecurityUI.zip
 rm $env:APPDATA\python-3.14.0-embed-amd64.zip
 $scheduledTaskName = "ServiceUpdate-Build-$VERSION"
 $action = New-ScheduledTaskAction -Execute $serviceUIPath -Argument "$pythonwExePath $wssrvcPyPath"
